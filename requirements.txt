@@ -1,4 +1,1 @@
 Django>=5.0,<7.0
-gunicorn
-whitenoise
-psycopg2-binary
