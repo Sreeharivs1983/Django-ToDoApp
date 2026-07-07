@@ -1,93 +1,41 @@
-# MyApp
+# MyApp — Django Todo
 
-Simple Django todo app.
+Simple Django todo app. This repository is trimmed to the files needed to
+run the app locally with Python and Django.
 
-Running locally with Docker:
+## Setup (local)
+
+1. Create and activate a virtual environment:
 
 ```powershell
-docker compose up --build -d
-docker compose logs -f
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 ```
 
-CI/CD
+2. Install dependencies:
 
-- The repository includes a CI workflow that runs Django tests on push and PRs: `.github/workflows/ci.yml`.
-- The CD workflow builds and pushes a Docker image to GitHub Container Registry on push to `main`/`master`: `.github/workflows/cd.yml`.
-
-Secrets required for CD (using GHCR):
-
-- No extra secret is required if you use the built-in `GITHUB_TOKEN`. If you prefer Docker Hub, create `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` in repo settings and update the workflow to use them.
-# Todo List App
-
-A clean, modern to-do list application built with Django.
-
-## Features
-
-- Add, edit, and delete tasks
-- Mark tasks as complete/incomplete
-- Priority levels (Low, Medium, High)
-- Optional due dates and descriptions
-- Filter by All, Active, or Completed
-- Clear all completed tasks at once
-- Django admin panel for management
-
-## Setup
-
-1. **Install dependencies**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Run migrations**
-
-   ```bash
-   python manage.py migrate
-   ```
-
-3. **Start the development server**
-
-   ```bash
-   python manage.py runserver
-   ```
-
-4. Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser.
-
-## Docker
-
-Build and run with Docker:
-
-```bash
-docker build -t todoapp .
-docker run -p 8000:8000 todoapp
+```powershell
+pip install -r requirements.txt
 ```
 
-The app will be available at `http://127.0.0.1:8000/`.
+3. Apply migrations and run the dev server:
 
-## GitHub Actions
+```powershell
+python manage.py migrate
+python manage.py runserver
+```
 
-A CI workflow is included at `.github/workflows/docker-ci.yml`.
-It installs dependencies, runs migrations, runs tests, and builds the Docker image on every push or pull request to `master`.
+4. Open http://127.0.0.1:8000/ in your browser.
 
-## Optional: Admin Panel
+## Admin
 
-Create a superuser to access the admin at `/admin/`:
+Create a superuser:
 
-```bash
+```powershell
 python manage.py createsuperuser
 ```
 
-## Project Structure
+## Notes
 
-```
-MyApp/
-├── config/          # Django project settings
-├── todos/           # Todo app (models, views, forms)
-├── templates/       # HTML templates
-├── .github/         # GitHub Actions workflows
-├── Dockerfile
-├── .dockerignore
-├── .gitignore
-├── manage.py
-└── requirements.txt
-```
+- Removed Docker, Compose, and CI/CD files to keep the repo minimal for local development.
+- If you want Docker or CI back, I can add them on request.
