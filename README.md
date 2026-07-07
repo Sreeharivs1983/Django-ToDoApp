@@ -34,6 +34,22 @@ A clean, modern to-do list application built with Django.
 
 4. Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser.
 
+## Docker
+
+Build and run with Docker:
+
+```bash
+docker build -t todoapp .
+docker run -p 8000:8000 todoapp
+```
+
+The app will be available at `http://127.0.0.1:8000/`.
+
+## GitHub Actions
+
+A CI workflow is included at `.github/workflows/docker-ci.yml`.
+It installs dependencies, runs migrations, runs tests, and builds the Docker image on every push or pull request to `master`.
+
 ## Optional: Admin Panel
 
 Create a superuser to access the admin at `/admin/`:
@@ -49,6 +65,10 @@ MyApp/
 ├── config/          # Django project settings
 ├── todos/           # Todo app (models, views, forms)
 ├── templates/       # HTML templates
+├── .github/         # GitHub Actions workflows
+├── Dockerfile
+├── .dockerignore
+├── .gitignore
 ├── manage.py
 └── requirements.txt
 ```
