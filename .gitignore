@@ -1,6 +1,32 @@
 # Python
 __pycache__/
 *.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtualenv
+.venv/
+venv/
+
+# SQLite
+db.sqlite3
+
+# Environment files
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Mac
+.DS_Store
+
+# Docker
+docker-compose.override.yml
+# Python
+__pycache__/
+*.py[cod]
 *$py.class
 
 # Virtual environments

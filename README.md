@@ -1,3 +1,22 @@
+# MyApp
+
+Simple Django todo app.
+
+Running locally with Docker:
+
+```powershell
+docker compose up --build -d
+docker compose logs -f
+```
+
+CI/CD
+
+- The repository includes a CI workflow that runs Django tests on push and PRs: `.github/workflows/ci.yml`.
+- The CD workflow builds and pushes a Docker image to GitHub Container Registry on push to `main`/`master`: `.github/workflows/cd.yml`.
+
+Secrets required for CD (using GHCR):
+
+- No extra secret is required if you use the built-in `GITHUB_TOKEN`. If you prefer Docker Hub, create `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` in repo settings and update the workflow to use them.
 # Todo List App
 
 A clean, modern to-do list application built with Django.
