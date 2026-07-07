@@ -39,3 +39,7 @@ python manage.py createsuperuser
 
 - Removed Docker, Compose, and CI/CD files to keep the repo minimal for local development.
 - If you want Docker or CI back, I can add them on request.
+
+## Docs
+
+Additional developer notes and usage instructions are available in [docs/USAGE.md](docs/USAGE.md).
